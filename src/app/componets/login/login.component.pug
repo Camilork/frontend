@@ -1,0 +1,37 @@
+form('#loginform'="ngForm") 
+    table(id="tblogin" class='table')
+        thead(class="bg-info text-white")
+            tr
+                th Log in
+        tbody(class='bg-light text-dark')   
+            tr
+                td 
+                    input(
+                        type="text", 
+                        name="name" ,
+                        placeholder="Username"
+                        #username="ngModel" , 
+                        [(ngModel)]="loginService.logina.name"
+                    )                
+            tr
+                td
+                    input(
+                        type="password", 
+                        name="password",
+                        placeholder="Password" 
+                        #password="ngModel", 
+                        [(ngModel)]="loginService.logina.password"
+                    )
+            tr
+                td
+                    input(
+                        type="button", 
+                        class="btn bg-success text-white", 
+                        value="Log in", 
+                        (click)="logperson(loginform)"
+                    )
+            //tr
+                td
+                    p(class="text-center text-muted")
+                        small(class="ng-binding") Don't have an account yet?
+                        a(ui-sref="main.views.signup" class="text-dark" href="/register/") Sign up

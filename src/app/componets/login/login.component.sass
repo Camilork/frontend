@@ -1,0 +1,44 @@
+$break-large: 800px;
+$table-desktop-width: 30%;
+$table-mid-width: 70%;
+$table-mobile-width : 90%; 
+$table-th-size: xx-large;
+$table-content-fontsize : x-large;
+$table-radius: 2%;
+$input-width: 70%;
+
+@mixin borderradius($radio)
+    border-radius: $radio;
+@mixin drop-borders()
+    border-top: 10px;
+    border-left: 10px;
+    border-right: 10px;
+@mixin table-response()
+    @media screen and (max-width: $break-large)    
+        width: $table-mobile-width;
+    @media screen and (min-width: 800px)
+        width: $table-mid-width;
+    @media screen and (min-width: 1200px)
+        width: $table-desktop-width;  
+
+#tblogin
+    width: $table-desktop-width;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background: white;
+    border-style: inset;
+    border-width: 7px;
+    border-color: coral;
+    font-size: $table-content-fontsize;
+    @include borderradius($table-radius);
+    th
+            text-align: center;
+            font-size: $table-th-size;
+    @include table-response;    
+input 
+    width: $input-width ; 
+    font-size: $table-content-fontsize;
+    @include drop-borders;
+   
