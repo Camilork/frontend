@@ -1,24 +1,53 @@
-.card-img-top
-    width: 50%;
-    float: left;
-    margin: 2% 10% 0% 10%;
-label
-    font-size: x-large;
-    padding: 1%;
-button
-    float: right;
-    padding: 1%;
-    margin-left: 1%;
-#menu
-    font-size: xx-large;
-#appcontent
-    background-color: black;
-.card
-    width: 20%;
+@mixin center()
     margin-left: auto;
-    margin-right: auto;
-#nsas
-    height: 600px;
-    margin-top: 3%;
-    overflow: scroll;
-    border-bottom-style: initial;
+    margin-right: auto;    
+.card-img-top 
+    background-color: white;
+    width: 50%;
+    +center()
+.form-group
+    font-size: xx-large;
+    text-align: center;
+    background-color: white;
+    +center()
+    input
+        width: 80%;
+        font-size: x-large;
+        margin-bottom: 4%;
+        margin-top: 4%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        +center()
+#getPersonView,#notifiView
+	height: 535px;
+	overflow-y: scroll;
+.card
+    width: 95% !important;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    +center()    
+#title
+    color: white;
+    width: 100%;
+    font-size: xx-large;
+    background-color: #0091ea;
+
+.notifi
+    background:rgba(0,0,0,0) 
+    border-style: none;
+    .card-body 
+        border-style: none;
+
+scrollbar 
+    width: 3px;
+
+::-webkit-scrollbar 
+    width: 3px;
+::-webkit-scrollbar-track 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+::-webkit-scrollbar-thumb 
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+
+

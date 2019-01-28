@@ -42,7 +42,6 @@ export class PersonComponent implements OnInit {
     this.personService.selectperson = person;
     this.personService.selectperson.password = null;
     this.pswstatus = false;
-    this.notificar("Edicion","Inicia modo edicion");
   }
   getperson(){
     this.personService.getPerson()
@@ -65,6 +64,7 @@ export class PersonComponent implements OnInit {
       form.reset();
       this.pswstatus = true;
       this.personService.selectperson = new Person();
+      this.getperson();
     }
   }
 

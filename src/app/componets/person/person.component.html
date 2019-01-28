@@ -2,50 +2,52 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<div class="p-3 mb-2 bg-primary text-white" id="menu">Sing up</div>
 <div class="container-fluid text-center">   
   <div class="row content">
     <div class="col-sm-7 text-left"> 
       <div class="card-img-top"> 
-        <form #personaform="ngForm" (ngSubmit)="addperson(personaform)">
+        <form #personaform="ngForm">
           <input class="form-control" type="hidden" name="_id" id="_id" #_id="ngModel" [(ngModel)]="personService.selectperson._id"/>
           <div class="form-group">
-            <label for="email">Name</label>
-            <input class="form-control" type="text" name="name" id="name" #name="ngModel" [(ngModel)]="personService.selectperson.name" placeholder="put the name"/>
+            <label id="title">Edit person</label>
           </div>
           <div class="form-group">
-            <label for="pwd">Latsname</label>
-            <input class="form-control" type="text" id="lastname" name="lastname" #lastname="ngModel" [(ngModel)]="personService.selectperson.lastname" placeholder="put the lastname"/>
+            <input class="form-control" type="text" name="name" id="name" #name="ngModel" [(ngModel)]="personService.selectperson.name" placeholder="Name"/>
+            <input class="form-control" type="text" id="lastname" name="lastname" #lastname="ngModel" [(ngModel)]="personService.selectperson.lastname" placeholder="Lastname"/>
+            <input class="form-control" type="text" id="pwd" name="email" #email="ngModel" [(ngModel)]="personService.selectperson.email" placeholder="Email"/>
+            <div *ngIf="pswstatus">
+              <input class="form-control" type="password" id="pwd" name="password" #password="ngModel" [(ngModel)]="personService.selectperson.password" placeholder="Password"/>
+            </div>
           </div>
           <div class="form-group">
-            <label for="pwd">Email</label>
-            <input class="form-control" type="text" id="pwd" name="email" #email="ngModel" [(ngModel)]="personService.selectperson.email" placeholder="put the email"/>
-          </div>
-          <div class="form-group" *ngIf="pswstatus">
-            <label for="pwd">Password</label>
-            <input class="form-control" type="password" id="pwd" name="password" #password="ngModel" [(ngModel)]="personService.selectperson.password" placeholder="Put the password"/>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-outline-primary btn-lg">Save</button>
+            <div id="btndiv">
+              <button class="btn btn-outline-primary btn-lg" (click)="resetForm(personaform)">Clean   </button>
+              <button class="btn btn-outline-primary btn-lg" (click)="addperson(personaform)">Save    </button>
+            </div>
           </div>
         </form>
-        <button class="btn right btn btn-outline-primary btn-lg" (click)="resetForm(personaform)">Clean   </button>
       </div>
     </div>
-    <div class="col-sm-3 sidenav" id="nsas">
-      <div class="card" style="width:300px" *ngFor="let person of personService.person">
-        <div class="card-body">
-          <h3 class="card-title">{{person.name}} {{person.lastname}}</h3>
-          <p class="card-text">{{person.email}}</p><a (click)="editperson(person)"><i class="glyphicon glyphicon-pencil"></i></a><a (click)="deleteperson(person._id, personaform)"><i class="glyphicon glyphicon-trash"></i></a>
+    <div class="col-sm-3 sidenav">
+      <label id="title">Persons</label>
+      <div id="getPersonView">
+        <div class="card" style="width:300px" *ngFor="let person of personService.person">
+          <div class="card-body">
+            <h3 class="card-title">{{person.name}} {{person.lastname}}</h3>
+            <p class="card-text">{{person.email}}</p><a (click)="editperson(person)"><i class="glyphicon glyphicon-pencil"></i></a><a (click)="deleteperson(person._id, personaform)"><i class="glyphicon glyphicon-trash"></i></a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-2 sidenav" id="nsas">
-      <div class="card" style="width:200px" *ngFor="let not of notificacion">
-        <div class="card-body bg-primary mb-3">
-          <h3 class="card-title">{{not.titulo}}</h3>
-          <p class="card-text">{{not.mensaje}}</p>
-          <p class="card-text">{{not.hora}}</p>
+    <div class="col-sm-2 sidenav">
+      <label id="title">History</label>
+      <div id="notifiView">
+        <div class="card dropdown-toggle notifi" style="width:200px" *ngFor="let not of notificacion">
+          <div class="card-body bg-primary">
+            <h3 class="card-title">{{not.titulo}}</h3>
+            <p class="card-text">{{not.mensaje}}</p>
+            <p class="card-text">{{not.hora}}</p>
+          </div>
         </div>
       </div>
     </div>
