@@ -5,6 +5,8 @@
     background-color: white;
     width: 50%;
     +center()
+    @media only screen and (max-width: 600px)
+        width: 95%;
 .form-group
     font-size: xx-large;
     text-align: center;
@@ -20,7 +22,7 @@
         border-right: none;
         +center()
 #getPersonView,#notifiView
-	height: 535px;
+	max-height: 535px;
 	overflow-y: scroll;
 .card
     width: 95% !important;
@@ -49,5 +51,6 @@ scrollbar
 ::-webkit-scrollbar-thumb 
   background-color: darkgrey;
   outline: 1px solid slategrey;
-
-
+.sidenav
+    @media only screen and (max-width: 600px)
+        background-color: #2C2D31;

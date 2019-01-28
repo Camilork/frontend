@@ -14,7 +14,7 @@ export class PersonService {
   }
   
   getPerson(){
-    return this.http.get(this.server.server); 
+    return this.http.get(this.server.server);
   }
   postPerson(person: Person){
     return this.http.post(this.server.server,person);

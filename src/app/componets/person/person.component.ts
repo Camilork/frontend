@@ -45,7 +45,7 @@ export class PersonComponent implements OnInit {
   }
   getperson(){
     this.personService.getPerson()
-    .subscribe( res => {
+    .subscribe(res => {
       this.personService.person = res as Person[];
     })
   }

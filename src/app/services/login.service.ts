@@ -18,12 +18,15 @@ export class LoginService {
     this.http.post(this.server.server+'/login',req).subscribe(resp => {
       this.data = resp;
       localStorage.setItem('staffondemandToken', this.data.token);
-      console.log(this.data);
       this.router.navigateByUrl('/user');
     }, err => {
       this.message = err.error.msg;
-      console.log(err);
-      alert(err.error.msg);
+      console.log(err.error.msg);
+      if(err.error.msg == undefined){
+        alert("Connexion refused");
+      }else{
+        alert(err.error.msg);
+      }
     });
   }
 }
