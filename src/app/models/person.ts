@@ -1,5 +1,5 @@
 export class Person {
-    constructor(_id = null,nombre = "",apellido = "", correo = "",password = ''){
+    constructor(_id = null,nombre = "",apellido = "", correo = "",password =""){
         this._id= _id;
         this.name = nombre;
         this.lastname = apellido;

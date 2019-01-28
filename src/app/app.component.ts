@@ -15,7 +15,14 @@ export class AppComponent {
   loger : boolean = false;
 
 ngOnInit() {
-  this.sessioncheck()
+  this.sessioncheck();  
+  this.router.events.forEach((event) => { 
+    if (event['url'] == '/'){
+      this.loger = false;
+    }else{
+      this.loger =true;
+    }
+    }); 
 }
 
 sessioncheck(){

@@ -34,7 +34,7 @@ div(class="container-fluid text-center")
                         [(ngModel)]="personService.selectperson._id"
                     )
                     div(class="form-group")
-                        label(for="email") Nombre
+                        label(for="email") Name
                         input( 
                             type="text",
                             name="name", 
@@ -42,10 +42,10 @@ div(class="container-fluid text-center")
                             id="name",
                             #name="ngModel", 
                             [(ngModel)]="personService.selectperson.name", 
-                            placeholder="ingresa el nombre"
+                            placeholder="put the name"
                         )
                     div(class="form-group")
-                        label(for="pwd") Apellido
+                        label(for="pwd") Latsname
                         input( 
                             type="text", 
                             class="form-control", 
@@ -53,10 +53,10 @@ div(class="container-fluid text-center")
                             name="lastname", 
                             #lastname="ngModel", 
                             [(ngModel)]="personService.selectperson.lastname", 
-                            placeholder="ingresa tu apellido"
+                            placeholder="put the lastname"
                         )
                     div(class="form-group")
-                        label(for="pwd") Correo
+                        label(for="pwd") Email
                         input(
                             type="text", 
                             class="form-control",
@@ -64,14 +64,25 @@ div(class="container-fluid text-center")
                             name="email", 
                             #email="ngModel", 
                             [(ngModel)]="personService.selectperson.email",  
-                            placeholder="ingresa tu correo"
+                            placeholder="put the email"
                         )
+                    div(class="form-group", *ngIf="pswstatus")
+                        label(for="pwd") Password
+                        input(
+                            type="password", 
+                            class="form-control",
+                            id="pwd", 
+                            name="password", 
+                            #password="ngModel", 
+                            [(ngModel)]="personService.selectperson.password",  
+                            placeholder="Put the password"
+                        )    
                     div(class="form-group")
-                        button(class="btn btn-outline-primary btn-lg") Guardar
+                        button(class="btn btn-outline-primary btn-lg") Save
                 button(
                     class="btn right", 
                     class="btn btn-outline-primary btn-lg", 
-                    "(click)"="resetForm(personaform)") Limpiar
+                    "(click)"="resetForm(personaform)") Clean   
         div(class="col-sm-3 sidenav" id="nsas")
             div(
                 class="card", 

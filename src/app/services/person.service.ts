@@ -16,13 +16,13 @@ export class PersonService {
   getPerson(){
     return this.http.get(this.server.server); 
   }
-  postPerson(persona: Person){
-    return this.http.post(this.server.server,persona); 
+  postPerson(person: Person){
+    return this.http.post(this.server.server,person);
   }
-  putPerson(persona: Person){
-    return this.http.put(this.server + `/${persona._id}`,persona); 
+  putPerson(person: Person){
+    return this.http.put(this.server.server + `/${person._id}`,person); 
   }
   deletePerson(_id: string){
-    return this.http.delete(this.server + `/${_id}`); 
+    return this.http.delete(this.server.server + `/${_id}`); 
   }
 }

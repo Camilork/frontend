@@ -10,22 +10,26 @@
         <form #personaform="ngForm" (ngSubmit)="addperson(personaform)">
           <input class="form-control" type="hidden" name="_id" id="_id" #_id="ngModel" [(ngModel)]="personService.selectperson._id"/>
           <div class="form-group">
-            <label for="email">Nombre</label>
-            <input class="form-control" type="text" name="name" id="name" #name="ngModel" [(ngModel)]="personService.selectperson.name" placeholder="ingresa el nombre"/>
+            <label for="email">Name</label>
+            <input class="form-control" type="text" name="name" id="name" #name="ngModel" [(ngModel)]="personService.selectperson.name" placeholder="put the name"/>
           </div>
           <div class="form-group">
-            <label for="pwd">Apellido</label>
-            <input class="form-control" type="text" id="lastname" name="lastname" #lastname="ngModel" [(ngModel)]="personService.selectperson.lastname" placeholder="ingresa tu apellido"/>
+            <label for="pwd">Latsname</label>
+            <input class="form-control" type="text" id="lastname" name="lastname" #lastname="ngModel" [(ngModel)]="personService.selectperson.lastname" placeholder="put the lastname"/>
           </div>
           <div class="form-group">
-            <label for="pwd">Correo</label>
-            <input class="form-control" type="text" id="pwd" name="email" #email="ngModel" [(ngModel)]="personService.selectperson.email" placeholder="ingresa tu correo"/>
+            <label for="pwd">Email</label>
+            <input class="form-control" type="text" id="pwd" name="email" #email="ngModel" [(ngModel)]="personService.selectperson.email" placeholder="put the email"/>
+          </div>
+          <div class="form-group" *ngIf="pswstatus">
+            <label for="pwd">Password</label>
+            <input class="form-control" type="password" id="pwd" name="password" #password="ngModel" [(ngModel)]="personService.selectperson.password" placeholder="Put the password"/>
           </div>
           <div class="form-group">
-            <button class="btn btn-outline-primary btn-lg">Guardar</button>
+            <button class="btn btn-outline-primary btn-lg">Save</button>
           </div>
         </form>
-        <button class="btn right btn btn-outline-primary btn-lg" (click)="resetForm(personaform)">Limpiar</button>
+        <button class="btn right btn btn-outline-primary btn-lg" (click)="resetForm(personaform)">Clean   </button>
       </div>
     </div>
     <div class="col-sm-3 sidenav" id="nsas">

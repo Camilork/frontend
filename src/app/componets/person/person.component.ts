@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Output,EventEmitter} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PersonService } from '../../services/person.service';
 import { Person } from '../../models/person';
@@ -13,13 +13,16 @@ import { Person } from '../../models/person';
 export class PersonComponent implements OnInit {
   constructor(public personService : PersonService) { }
   notificacion = [];
+  pswstatus : boolean = true;
 
   ngOnInit() {
    this.getperson(); 
   }
+  
   addperson(form?: NgForm) {   
     if(!this.datatest(form.value.name,form.value.lastname,form.value.email)){return 0}
     if(form.value._id) {
+      console.log(form.value);
       this.personService.putPerson(form.value)
         .subscribe(res => {
           this.notificar("Actualizacion","Se actualizo con exito "+form.value.name+" "+form.value.lastname);
@@ -37,6 +40,8 @@ export class PersonComponent implements OnInit {
   }
   editperson(person: Person) {
     this.personService.selectperson = person;
+    this.personService.selectperson.password = null;
+    this.pswstatus = false;
     this.notificar("Edicion","Inicia modo edicion");
   }
   getperson(){
@@ -58,6 +63,7 @@ export class PersonComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form) {
       form.reset();
+      this.pswstatus = true;
       this.personService.selectperson = new Person();
     }
   }
