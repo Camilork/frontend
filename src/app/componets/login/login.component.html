@@ -6,10 +6,10 @@
         <th>Log in</th>
       </tr>
     </thead>
-    <tbody class="bg-light text-dark">  
+    <tbody class="bg-light">  
       <tr>
         <td> 
-          <input type="text" name="name" placeholder="Username" #username="ngModel" [(ngModel)]="loginService.logina.name"/>
+          <input type="text" name="username" placeholder="Username" #username="ngModel" [(ngModel)]="loginService.logina.username"/>
         </td>
       </tr>
       <tr>
@@ -19,15 +19,10 @@
       </tr>
       <tr>
         <td>
-          <input class="btn bg-success text-white" type="button" value="Log in" (click)="logperson(loginform)"/>
+          <input class="btn bg-success text-white" id="btnlog" type="button" value="Sing up" (click)="logperson(loginform)"/>
+          <input class="btn bg-success text-white" id="btnlog" type="button" value="Log in" (click)="logperson(loginform)"/>
         </td>
       </tr>
-      <!--tr
-      td
-          p(class="text-center text-muted")
-              small(class="ng-binding") Don't have an account yet?
-              a(ui-sref="main.views.signup" class="text-dark" href="/register/") Sign up
-      -->
     </tbody>
   </table>
 </form>

@@ -4,7 +4,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <div class="container-fluid text-center">   
   <div class="row content">
-    <div class="col-sm-7 text-left"> 
+    <div class="col-sm-1 text-left"></div>
+    <div class="col-sm-5 text-left"> 
       <div class="card-img-top"> 
         <form #personaform="ngForm">
           <input class="form-control" type="hidden" name="_id" id="_id" #_id="ngModel" [(ngModel)]="personService.selectperson._id"/>
@@ -12,12 +13,38 @@
             <label id="title">Edit person</label>
           </div>
           <div class="form-group">
-            <input class="form-control" type="text" name="name" id="name" #name="ngModel" [(ngModel)]="personService.selectperson.name" placeholder="Name"/>
-            <input class="form-control" type="text" id="lastname" name="lastname" #lastname="ngModel" [(ngModel)]="personService.selectperson.lastname" placeholder="Lastname"/>
-            <input class="form-control" type="text" id="pwd" name="email" #email="ngModel" [(ngModel)]="personService.selectperson.email" placeholder="Email"/>
-            <div *ngIf="pswstatus">
-              <input class="form-control" type="password" id="pwd" name="password" #password="ngModel" [(ngModel)]="personService.selectperson.password" placeholder="Password"/>
+            <div>
+              <input type="text" name="username" id="username" #username="ngModel" [(ngModel)]="personService.selectperson.username" placeholder="Username"/>
             </div>
+            <div>   
+              <input type="text" id="first_name" name="first_name" #first_name="ngModel" [(ngModel)]="personService.selectperson.first_name" placeholder="First name"/>
+              <input type="text" id="second_name" name="second_name" #second_name="ngModel" [(ngModel)]="personService.selectperson.second_name" placeholder="Second name"/>
+            </div>
+            <div>
+              <input type="text" id="first_lastname" name="first_lastname" #first_lastname="ngModel" [(ngModel)]="personService.selectperson.first_lastname" placeholder="First lastname"/>
+              <input type="text" id="second_lastname" name="second_lastname" #second_lastname="ngModel" [(ngModel)]="personService.selectperson.second_lastname" placeholder="Second lastname"/>
+            </div>
+            <div>
+              <input type="email" id="email" name="email" #email="ngModel" [(ngModel)]="personService.selectperson.email" placeholder="Email"/>
+              <input type="text" id="country" name="country" #country="ngModel" [(ngModel)]="personService.selectperson.country" placeholder="Country"/>
+            </div>
+            <div *ngIf="pswstatus">
+              <input type="password" id="password" name="password" #password="ngModel" [(ngModel)]="personService.selectperson.password" placeholder="Password"/>
+              <input type="password" id="repassword" name="repassword" placeholder="Repit the password"/>
+            </div>
+            <div>
+              <input type="number" id="celphone" name="celphone" #celphone="ngModel" [(ngModel)]="personService.selectperson.celphone" placeholder="Celphone"/>
+              <input type="number" id="Rate_by_hour" name="Rate_by_hour" #Rate_by_hour="ngModel" [(ngModel)]="personService.selectperson.Rate_by_hour" placeholder="Rate by hour"/>
+            </div>
+            <div>   
+              <input type="number" id="Rate_by_mount" name="Rate_by_mount" #Rate_by_mount="ngModel" [(ngModel)]="personService.selectperson.Rate_by_mount" placeholder="Rate by mount"/>
+              <input type="number" id="idRol" name="idRol" #idRol="ngModel" [(ngModel)]="personService.selectperson.idRol" placeholder="idRol"/>
+            </div>
+            <div>   
+              <input type="text" id="github" name="github" #github="ngModel" [(ngModel)]="personService.selectperson.github" placeholder="Github"/>
+              <input type="text" id="linkedin" name="linkedin" #linkedin="ngModel" [(ngModel)]="personService.selectperson.linkedin" placeholder="Linkedin"/>
+            </div>
+            <input class="form-control" type="text" id="bitbucket" name="bitbucket" #bitbucket="ngModel" [(ngModel)]="personService.selectperson.bitbucket" placeholder="Bitbucket"/>
           </div>
           <div class="form-group">
             <div id="btndiv">
@@ -28,13 +55,40 @@
         </form>
       </div>
     </div>
-    <div class="col-sm-3 sidenav">
+    <div class="col-sm-4 sidenav">
       <label id="title">Persons</label>
       <div id="getPersonView">
-        <div class="card" style="width:300px" *ngFor="let person of personService.person">
+        <div class="card" *ngFor="let person of personService.person">
+          <div class="card-header">
+            <p class="card-text usertitle">{{person.first_name}} {{person.second_name}} {{person.first_lastname}} {{person.second_lastname}}.                   </p>
+          </div>
           <div class="card-body">
-            <h3 class="card-title">{{person.name}} {{person.lastname}}</h3>
-            <p class="card-text">{{person.email}}</p><a (click)="editperson(person)"><i class="glyphicon glyphicon-pencil"></i></a><a (click)="deleteperson(person._id, personaform)"><i class="glyphicon glyphicon-trash"></i></a>
+            <p class="card-text">
+              <label>Email: 
+                <p>{{person.email}}</p>
+              </label>
+              <label>Rate by hour: 
+                <p>{{person.Rate_by_hour}}. </p>
+              </label>
+              <label>Rate by mount: 
+                <p>{{person.Rate_by_mount}}.   </p>
+              </label>
+              <label>Celphone: 
+                <p>{{person.celphone}}.  </p>
+              </label>
+              <label>Country: 
+                <p>{{person.country}}.</p>
+              </label>
+              <label>Github:   
+                <p>{{person.github}}. </p>
+              </label>
+              <label>Linkedin: 
+                <p>{{person.linkedin}}. </p>
+              </label>
+              <label>Bitbucket:    
+                <p>{{person.bitbucket}}. </p>
+              </label>
+            </p><a (click)="editperson(person)"><i class="glyphicon glyphicon-pencil"></i></a><a (click)="deleteperson(person._id, personaform)"><i class="glyphicon glyphicon-trash">   </i></a>
           </div>
         </div>
       </div>

@@ -3,15 +3,15 @@ form('#loginform'="ngForm")
         thead(class="bg-info text-white")
             tr
                 th Log in
-        tbody(class='bg-light text-dark')   
+        tbody(class='bg-light')   
             tr
                 td 
                     input(
                         type="text", 
-                        name="name" ,
+                        name="username" ,
                         placeholder="Username"
                         #username="ngModel" , 
-                        [(ngModel)]="loginService.logina.name"
+                        [(ngModel)]="loginService.logina.username"
                     )                
             tr
                 td
@@ -25,13 +25,17 @@ form('#loginform'="ngForm")
             tr
                 td
                     input(
+                        id= "btnlog"
+                        type="button", 
+                        class="btn bg-success text-white", 
+                        value="Sing up", 
+                        (click)="logperson(loginform)"
+                    )    
+                    input(
+                        id="btnlog"
                         type="button", 
                         class="btn bg-success text-white", 
                         value="Log in", 
                         (click)="logperson(loginform)"
                     )
-            //tr
-                td
-                    p(class="text-center text-muted")
-                        small(class="ng-binding") Don't have an account yet?
-                        a(ui-sref="main.views.signup" class="text-dark" href="/register/") Sign up
+            

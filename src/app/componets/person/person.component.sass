@@ -3,32 +3,43 @@
     margin-right: auto;    
 .card-img-top 
     background-color: white;
-    width: 50%;
+    width: 80%;
     +center()
     @media only screen and (max-width: 600px)
-        width: 95%;
+        width: 100%;
 .form-group
     font-size: xx-large;
     text-align: center;
     background-color: white;
     +center()
     input
-        width: 80%;
-        font-size: x-large;
-        margin-bottom: 4%;
-        margin-top: 4%;
+        width: 45%;
+        font-size: medium;
+        margin-bottom: 1%;
+        margin-top: 1%;
         border-top: none;
         border-left: none;
         border-right: none;
         +center()
-#getPersonView,#notifiView
-	max-height: 535px;
-	overflow-y: scroll;
+#getPersonView
+    margin-top: -1.5%;
+    max-height: 510px;
+    overflow-y: scroll
 .card
-    width: 95% !important;
-    margin-bottom: 1px;
-    margin-top: 1px;
+    width: 100% !important;
     +center()    
+.card-text
+    label
+        float: left;
+        margin-left: 5%;
+        margin-right: auto;
+        font-size: medium;
+        text-align: left ;
+        width: 45%
+        p
+            font-weight: normal;
+            @media only screen and (max-width: 600px)
+                font-size: 3.5vw;
 #title
     color: white;
     width: 100%;
@@ -54,3 +65,9 @@ scrollbar
 .sidenav
     @media only screen and (max-width: 600px)
         background-color: #2C2D31;
+.glyphicon
+    font-size: 200%;
+    width: 50%;    
+    text-align: right;    
+.usertitle
+    font-size: large;
