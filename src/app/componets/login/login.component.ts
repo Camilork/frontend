@@ -9,13 +9,20 @@ import { NgForm } from '@angular/forms';
   providers: [LoginService],
 })
 export class LoginComponent implements OnInit {
+  sing : boolean = false;
 
   constructor(public loginService : LoginService) { }
-
+  
   ngOnInit() {
   }
   logperson(form: NgForm){
     this.loginService.actionlogin(form.value);
   }
-
+  singup(){
+    if(this.sing){
+      this.sing = false;
+    }else{
+      this.sing = true;
+    }
+  }
 }

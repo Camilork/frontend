@@ -1,5 +1,5 @@
 
-<form #loginform="ngForm"> 
+<form #loginform="ngForm" *ngIf="!sing"> 
   <table class="table" id="tblogin">
     <thead class="bg-info text-white">
       <tr>
@@ -19,10 +19,13 @@
       </tr>
       <tr>
         <td>
-          <input class="btn bg-success text-white" id="btnlog" type="button" value="Sing up" (click)="logperson(loginform)"/>
+          <input class="btn bg-success text-white" id="btnlog" type="button" value="Sing up" (click)="singup()"/>
           <input class="btn bg-success text-white" id="btnlog" type="button" value="Log in" (click)="logperson(loginform)"/>
         </td>
       </tr>
     </tbody>
   </table>
 </form>
+<div *ngIf="sing" style="width:90%;margin-left: auto;margin-right: auto;">                   
+  <app-usercreator (getUser)="this.singup()" [singup]="sing">             </app-usercreator>
+</div>
